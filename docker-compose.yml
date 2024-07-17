@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./default.conf:/etc/nginx/conf.d/default.conf
+      - ./mime.types:/etc/nginx/mime.types
+      - ./website:/usr/share/nginx/html
+      - /etc/letsencrypt/live/onmyown.pp.ua/fullchain.pem:/etc/nginx/fullchain.pem
+      - /etc/letsencrypt/live/onmyown.pp.ua/privkey.pem:/etc/nginx/privkey.pem
+    restart: always

@@ -1,2 +1,2 @@
 # website-cv
-me selfhosted website
+my selfhosted website
